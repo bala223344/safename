@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="14px" viewBox="0 0 18 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <title>Hamburger</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Hamburger" transform="translate(0.000000, -0.000000)" fill="#BFC5D2">
+            <path d="M0,0.173076923 L18,0.173076923 L18,2.06235431 L0,2.06235431 L0,0.173076923 Z M0,5.84090909 L18,5.84090909 L18,7.73018648 L0,7.73018648 L0,5.84090909 Z M0,11.5087413 L11,11.5087413 L11,13.3980186 L0,13.3980186 L0,11.5087413 Z" id="Menu-Icon"></path>
+        </g>
+    </g>
+</svg>

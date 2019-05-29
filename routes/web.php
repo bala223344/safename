@@ -14,6 +14,12 @@
 Route::get('/', function () use ($router) {
     return view('welcome');
 });
+Route::get('/idon',  [
+    'uses' => 'ProfileController@details'
+]);
+
+
+
 
 Route::get('sn/fetchscam', [
     'uses' => 'SafeNameController@fetchAndInsertScam'

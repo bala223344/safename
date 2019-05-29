@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="16" cy="16" r="16"></circle>
+    </defs>
+    <g id="SafeName.io" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4">
+            <g id="Element/Misc/Circle-Icon">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Base" fill="#FFFFFF" xlink:href="#path-1"></use>
+                <g id="Oval" opacity="0.2" mask="url(#mask-2)" fill="#BFC5D2">
+                    <circle cx="16" cy="16" r="16"></circle>
+                </g>
+                <g id="Element/Icon/Message" mask="url(#mask-2)" fill="#8798AD">
+                    <g transform="translate(10.000000, 11.000000)" id="🎨-Icon-color">
+                        <path d="M11.6682301,2.03055194 L4.79977373,9.25121725 C4.35741391,9.71626092 3.64126617,9.71626092 3.20003771,9.25121725 L0.330921347,6.23616428 C-0.110307116,5.77112061 -0.110307116,5.0182494 0.330921347,4.55320572 C0.773281165,4.08935142 1.4894289,4.08935142 1.93065736,4.55320572 L3.99990572,6.72856346 L10.0684941,0.348782754 C10.5097226,-0.116260918 11.2258703,-0.116260918 11.6682301,0.348782754 C12.11059,0.812637056 12.11059,1.56550827 11.6682301,2.03055194"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
