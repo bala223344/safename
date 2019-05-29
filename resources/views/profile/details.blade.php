@@ -1,6 +1,6 @@
 @extends('layouts.app-profile')
 @section('content')
-<div aria-hidden="true" class="modal fade eth-modal" role="dialog" tabindex="-1">
+ <div aria-hidden="true" class="modal fade eth-modal" role="dialog" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="d-flex p-4">
@@ -375,13 +375,13 @@
                     <div class="row">
                         <div class="col-12">
                             <pre class="code code-highlighted"><span class="hljs-comment d-block">-----BEGIN PGP SIGNATURE-----</span><span class="keybase-them built-in">Version: Keybase OpenPGP v2.1.0 <br>Comment: https://keybase.io/crypto</span><br>
-wsBcBAABCgAGBQJc7Ls9AAoJEIrJD367b+T6EHgH/2eNPQeh4sOvCf7a6bk+Y323
-QEo+GtsScrS+iKFC7mH1q6tHhseNC8UG4ZVbQZNycFdlGJscdcSNYJ0Tgc+U+XzM
-LAMTGpunwfgy7k9lxyamaoA6qJbpmPPa6xP5Q2pnckz+5p0Iv410T28mHGW/tPBE
-CryaJhn1Ljb/j73RQy6pXu2petuA2g9ueTgEpH8/3niivHOzAd23lAws5apnAe7G
-HymuawmtcGfYRsmZ2X6YzW5asOTN1QRZfvRT5R+cqBJqcuHyMxhP6cA4Py4HfVh/
-W4CLylH0+qGnGqjjDDbluKSneXG9EdgyEXDzXOF925dhLj7LjV8qvMVh5RDf4Mc=
-=T0s8<span class="hljs-comment d-block">-----END PGP SIGNATURE-----</span></pre>
+wsBcBAABCgAGBQJc7ma7AAoJEIrJD367b+T6mjMH/25VTHZii7qwO+xI78/nlnEA
+TroMAdcj8mxkA7HDQXyMjMZRM8Pv8q5o3/CYEdVr4Al0Fmz4+Tsh+l7OQGvXqW/I
+81Qb/0sGYFQ/8f14wG9HfH60SzvkZJs+90rXTzRyfolcQiaFm6V4sxI+dTdKje4f
+WJVDozq0OQmzxel+1VmJqvXE1UlcNjXU3NS+CXlkuhag4cz1HC7fhfJmSpIk9Hal
+3H3XdIDl4yKqbGUKGnoIvYwwpnCI9XIM9222dY326V/x3hSbv+VqN+xneE5zBWiQ
+PID0Mdyzp8um6elht6jExRH1lv1K978OLgOrtJ5iYpiyve1DKgyoWz48CorJh6Q=
+=19OH<span class="hljs-comment d-block">-----END PGP SIGNATURE-----</span></pre>
                         </div>
                     </div>
                 </div>
