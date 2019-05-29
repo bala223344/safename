@@ -11,18 +11,18 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+Route::get('/', function () use ($router) {
+    return view('welcome');
 });
 
-$router->get('sn/fetchscam', [
+Route::get('sn/fetchscam', [
     'uses' => 'SafeNameController@fetchAndInsertScam'
 ]);
 
-$router->get('sn/{addr}', [
+Route::get('sn/{addr}', [
     'uses' => 'SafeNameController@details'
 ]);
-$router->get('alias/{alias}', [
+Route::get('alias/{alias}', [
     'uses' => 'SafeNameController@alias'
 ]);
 
