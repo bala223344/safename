@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
         <title>SafeName | Secure Anonymous Identity</title>
-        <meta content="Description of the page less than 150 characters" name="description">
+        <meta content="" name="description">
         <!-- favicon files -->
         <link href="images/favicon_package/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
         <link href="images/favicon_package/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
@@ -29,7 +29,7 @@
 
 
 
-  <body class="bg-off-white mr-auto ml-auto">
+  <body class="">
 
 
 <div  id="app">
