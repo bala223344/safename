@@ -21,14 +21,14 @@ Route::get('/idon',  [
 
 
 
-Route::get('sn/fetchscam', [
+Route::get('api/sn/fetchscam', [
     'uses' => 'SafeNameController@fetchAndInsertScam'
 ]);
 
-Route::get('sn/{addr}', [
+Route::get('api/sn/{addr}', [
     'uses' => 'SafeNameController@details'
 ]);
-Route::get('alias/{alias}', [
+Route::get('api/alias/{alias}', [
     'uses' => 'SafeNameController@alias'
 ]);
 
