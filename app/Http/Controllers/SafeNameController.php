@@ -12,6 +12,8 @@ class SafeNameController extends Controller
 {
     public function details($addr) {
 
+        
+
         $a = DB::select('SELECT * FROM sws_address  
                             INNER JOIN sws_user on sws_address.cms_login_name = sws_user.cms_login_name 
                             WHERE address = ?;', [$addr]);
@@ -43,7 +45,9 @@ class SafeNameController extends Controller
             }
           
         }
+        //$valid_record = array('sdf' => 'sdf');
 
+       
         return response()->json($valid_record);
     }
     public function alias($alias) {
