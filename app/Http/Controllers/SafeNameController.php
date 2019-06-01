@@ -20,6 +20,8 @@ class SafeNameController extends Controller
 
 
         $valid_record = null;
+
+      
         if($a && $a[0])  {
 
 
@@ -45,16 +47,28 @@ class SafeNameController extends Controller
             }
           
         }
-        //$valid_record = array('sdf' => 'sdf');
 
        
         return response()->json($valid_record);
     }
     public function alias($alias) {
 
-        $a = DB::select('SELECT * FROM sws_user   
-                            INNER JOIN sws_address on sws_address.cms_login_name = sws_user.cms_login_name 
-                            WHERE public_profile_safename = ?;', [$alias]);
+       $a = DB::select('SELECT * FROM sws_user   
+                           INNER JOIN sws_address on sws_address.cms_login_name = sws_user.cms_login_name 
+                           WHERE public_profile_safename = ?;', [$alias]);
+
+        //   return response()->json([
+        //     'name' => 'Abigail',
+        //     'state' => 'CA'
+        //   ])
+        //                 ->withHeaders([
+        //                     'Content-Type'=> 'application/json',
+        //                     'X-Content-Type-Options' => 'nosniff',
+                            
+        //                 ]);
+
+
+
 
 
         // $recs = array();
