@@ -11,17 +11,13 @@ use App\SafeUser;
 class ProfileController extends Controller
 {
     public function details() {
-
-        
-        return view('profile.details' );
-           
     }
+
+    
+
     public function alias($alias) {
 
-        $a = DB::select('SELECT * FROM sws_user   
-                            INNER JOIN sws_address on sws_address.cms_login_name = sws_user.cms_login_name 
-                            WHERE public_profile_safename = ?;', [$alias]);
-
+        $a = SafeUser::fetchByAlias($alias);
 
         // $recs = array();
         // $valid_record = null;

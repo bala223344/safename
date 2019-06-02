@@ -14,13 +14,12 @@
 Route::get('/', function () use ($router) {
     return view('welcome');
 });
-Route::get('/idon',  [
-    'uses' => 'ProfileController@details'
+
+
+
+Route::get('whitelist', [
+    'uses' => 'UserController@whitelist'
 ]);
-
-
-
-
 Route::get('api/sn/fetchscam', [
     'uses' => 'SafeNameController@fetchAndInsertScam'
 ]);
@@ -32,3 +31,7 @@ Route::get('api/alias/{alias}', [
     'uses' => 'SafeNameController@alias'
 ]);
 
+
+Route::get('{slug}', [
+    'uses' => 'UserController@getProfileByAlias'
+])->where('slug', '([A-Za-z0-9\-\/]+)');

@@ -1,63 +1,33 @@
 @extends('layouts.app-profile')
 @section('content')
- <div aria-hidden="true" class="modal fade eth-modal" role="dialog" tabindex="-1">
+@foreach ($address as $add)
+<div aria-hidden="true" class="modal fade {{ $add->type_id == 1 ? 'eth-modal' : 'btc-modal' }}" role="dialog" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="d-flex p-4">
                     <div class="circle-bg position-relative d-flex justify-content-center align-items-center">
+
+                    @if ($add->type_id == 1)
                         <img draggable="false" src="images/eth-logo.svg">
-                    </div>
-                    <div class="payment-area">
-                        <span class="payment-type">Ethereum</span>
-                        <a class="payment-add-m">0xa6fe83Dcf28Cc982818656ba680e03416824D5E4</a>
-                        <a class="report-text">Report This Address</a>
-                    </div>
-                </div>
-                <div class="d-flex px-4 pb-4">
-                    <div class="row w-100">
-                        <div class="col-auto">
-                            <div class="modal-text-left text-left">
-                                Balance:
-</div>
-                            <div class="modal-text-left text-left">
-                                Last TX:
-</div>
-                            <div class="modal-text-left text-left">
-                                Check:
-</div>
-                        </div>
-                        <div class="col-auto">
-                            <div class="modal-text-right text-left">
-                                (Not Available in Beta) ETH
-</div>
-                            <div class="modal-text-right text-left">
-                                (Not Available in Beta)
-</div>
-                            <div class="modal-text-right text-left">
-                                <a class="link d-block" href="https://etherscan.io/address/0xa6fe83dcf28cc982818656ba680e03416824d5e4" target="_blank">Etherescan</a>
-                                <a class="link d-block" href="https://blockchair.com/ethereum/address/0xa6fe83dcf28cc982818656ba680e03416824d5e4" target="_blank">Blockchair</a>
-                                <a class="link d-block" href="https://ethplorer.io/address/0xa6fe83dcf28cc982818656ba680e03416824d5e4?from=search" target="_blank">Ethplorer</a>
-                            </div>
-                        </div>
-                        <div class="text-right pr-0 col">
-                            <img height="auto" src="images/eth-address.png" width="150px" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div aria-hidden="true" class="modal fade btc-modal" role="dialog" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="d-flex p-4">
-                    <div class="circle-bg position-relative d-flex justify-content-center align-items-center">
+                    @elseif($add->type_id == 2)
                         <img draggable="false" src="images/btc-logo.svg">
+                    @endif
                     </div>
                     <div class="payment-area">
-                        <span class="payment-type">Bitcoin</span>
-                        <a class="payment-add-m">133CbWM4DeowjuNfxGf8ad5CjNZp6CUAWw</a>
-                        <a class="report-text">Report This Address</a>
+
+                        <span class="payment-type">
+                        @if ($add->type_id == 1)
+                            Ethereum
+                        @elseif($add->type_id == 2) 
+                            Bitcoin
+                        @endif   
+
+                        </span>
+
+
+                        <a class="payment-add-m"  alt="Copy to clipboard">{{$add->address}} <span class="copy-to-clipboard" data-clipboard-text="{{$add->address}}" ><img width="13" height="18" src="images/copy.svg"> </span> 
+</a>
+                        <a class="report-text" href="https://discord.gg/m38mfRB" target="_blank">Report This Address</a>
                     </div>
                 </div>
                 <div class="d-flex px-4 pb-4">
@@ -75,17 +45,36 @@
                         </div>
                         <div class="col-auto">
                             <div class="modal-text-right text-left">
-                                (Not Available in Beta) BTC
+                                {{$balances[$add->address]}} 
+                                @if ($add->type_id == 1)
+                                    ETH
+                                @elseif($add->type_id == 2) 
+                                    BTC
+                                @endif   
+                                
 </div>
                             <div class="modal-text-right text-left">
                                 (Not Available in Beta)
 </div>
+
+
+                                @if ($add->type_id == 1)
+                                   
                             <div class="modal-text-right text-left">
-                                <a class="link d-block" href="https://live.blockcypher.com/btc/address/133CbWM4DeowjuNfxGf8ad5CjNZp6CUAWw/" target="_blank">Blockcypher</a>
-                                <a class="link d-block" href="https://btc.com/133CbWM4DeowjuNfxGf8ad5CjNZp6CUAWw" target="_blank">BTC.com</a>
-                                <a class="link d-block" href="https://explorer.bitcoin.com/btc/address/133CbWM4DeowjuNfxGf8ad5CjNZp6CUAWw" target="_blank">Bitcoin.com</a>
+                                <a class="link d-block" href="https://etherscan.io/address/{{$add->address}}" target="_blank">Etherescan</a>
+                                <a class="link d-block" href="https://blockchair.com/ethereum/address/{{$add->address}}" target="_blank">Blockchair</a>
+                                <a class="link d-block" href="https://ethplorer.io/address/{{$add->address}}?from=search" target="_blank">Ethplorer</a>
+                            </div>
+
+                                @elseif($add->type_id == 2) 
+                                <div class="modal-text-right text-left">
+                                <a class="link d-block" href="https://live.blockcypher.com/btc/address/{{$add->address}}/" target="_blank">Blockcypher</a>
+                                <a class="link d-block" href="https://btc.com/{{$add->address}}" target="_blank">BTC.com</a>
+                                <a class="link d-block" href="https://explorer.bitcoin.com/btc/address/{{$add->address}}" target="_blank">Bitcoin.com</a>
 
                             </div>
+                                @endif   
+
                         </div>
                         <div class="text-right pr-0 col">
                             <img height="auto" src="images/eth-address.png" width="150px" class="img-fluid">
@@ -95,57 +84,15 @@
             </div>
         </div>
     </div>
-    <div aria-hidden="true" class="modal fade dash-modal" role="dialog" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="d-flex p-4">
-                    <div class="circle-bg position-relative d-flex justify-content-center align-items-center">
-                        <img draggable="false" src="images/dash-logo.svg">
-                    </div>
-                    <div class="payment-area">
-                        <span class="payment-type">Dash</span>
-                        <a class="payment-add-m">XfHwwoYoVZXHhgYSAkufLuA2AUrj9MvsEB</a>
-                        <a class="report-text">Report This Address</a>
-                    </div>
-                </div>
-                <div class="d-flex px-4 pb-4">
-                    <div class="row w-100">
-                        <div class="col-auto">
-                            <div class="modal-text-left text-left">
-                                Balance:
-</div>
-                            <div class="modal-text-left text-left">
-                                Last TX:
-</div>
-                            <div class="modal-text-left text-left">
-                                Check:
-</div>
-                        </div>
-                        <div class="col-auto">
-                            <div class="modal-text-right text-left">
-                                (Not Available in Beta) DASH
-</div>
-                            <div class="modal-text-right text-left">
-                                (Not Available in Beta)
-</div>
-                            <div class="modal-text-right text-left">
-                                <a class="link d-block" href="https://chainz.cryptoid.info/dash/search.dws?q=XfHwwoYoVZXHhgYSAkufLuA2AUrj9MvsEB" target="_blank">CryptoID</a>
-                                <a class="link d-block" href="https://live.blockcypher.com/dash/address/XfHwwoYoVZXHhgYSAkufLuA2AUrj9MvsEB/" target="_blank">BlockCyper</a>
-                                <a class="link d-block" href="https://explorer.dash.org/address/XfHwwoYoVZXHhgYSAkufLuA2AUrj9MvsEB" target="_blank">Dash.org</a>
-                            </div>
-                        </div>
-                        <div class="text-right pr-0 col">
-                            <img height="auto" src="images/eth-address.png" width="150px" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+@endforeach
+
+
+ 
+
     <!-- https://keybase.io/verify start -->
     <span style="position: absolute; color: transparent;" class="w-100 m-0 text-right text-transparent"> <span>-----BEGIN PGP SIGNED MESSAGE-----<br></span>
     Hash: SHA512 <br> <br> <br></span>
-    <body onload="document.body.style.opacity='1'">
+    <body >
         <div class="d-flex" id="wrapper">
             <!-- Sidebar -->
             <div class="bg-white" id="sidebar-wrapper">
@@ -172,9 +119,10 @@
                     </div>
                     <div class="nav-right">
                         <button class="pay-btn name" onclick="window.location.href='#pay_section';">Pay
-                            <span>Idon</span>
+                            <span>{{$user->public_profile_safename}}</span>
                         </button>
-                        <button class="report-btn">Report User</button>
+                        <a class="report-btn" href="https://discord.gg/m38mfRB" target="_blank">
+                        Report User</a>
                     </div>
                 </nav>
                 <div class="container-fluid mb-5">
@@ -194,11 +142,11 @@
                                     <div class="text-center card-body position-relative pt-4">
                                         <div class="avatar-parent-child">
                                             <div class="avatar avatar-lg rounded-circle">
-                                                <img alt="idon" draggable="false" src="images/users/idon.png">
+                                                <img alt="idon" draggable="false" src="{{ Helper::avatar($user->avatar) }}">
                                             </div>
                                             <a class="avatar-child avatar-badge pay-circle d-flex align-items-center justify-content-center" href="#pay_section">Pay</a>
                                         </div>
-                                        <h5 class="username justify-content-center d-flex align-items-center">Idon</h5>
+                                        <h5 class="username justify-content-center d-flex align-items-center">{{$user->public_profile_safename}}</h5>
                                         <span class="d-block sub-username d-flex justify-content-center align-items-center text-nowrap">SAFENAME IDENTITY</span>
                                         <span class="d-block kyc justify-content-center d-flex align-items-center text-nowrap mt-1">KYC VERIFIED</span>
                                         <span class="d-block report-contain"><button class="text-nowrap report-btn-mobile mx-auto">
@@ -212,7 +160,7 @@
                                                 <div class="profile-title">
                                                     Profile
 </div>
-                                                <span>Idon is a Co-Founder of SafeName.io by SwissOne (HK) Limited.</span>
+                                                <span>{{$user->profile_description}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -232,6 +180,8 @@
                                                 Fair
 </div>
                                             <p class="score-desc mb-0 pr-2">All public and private addresses associated with this identity have no known reported risks, login to get notifications if this changes.</p>
+                                            <!-- Target -->
+
                                         </div>
                                     </div>
                                     <div class="bottom d-inline-flex justify-content-center">
@@ -270,16 +220,33 @@
 </div>
                                     <div class="payment-info">
                                         You can send payments to
-                                        <span class="name">Idon</span> through the following:
+                                        <span class="name">{{$user->public_profile_safename}}</span> through the following:
                                     </div>
                                     <div class="row mx-1">
-                                        <div class="payment-option align-items-center justify-content-between position-relative d-flex col-md" data-target=".eth-modal" data-toggle="modal">
+
+
+                                    @foreach ($address as $add)
+                                    <div class="payment-option align-items-center justify-content-between position-relative d-flex col-md" data-target="{{ $add->type_id == 1 ? '.eth-modal' : '.btc-modal' }}" data-toggle="modal">
                                             <div class="circle-bg position-relative d-flex justify-content-center align-items-center">
+
+                                            @if ($add->type_id == 1)
                                                 <img draggable="false" src="images/eth-logo.svg">
+                                            @elseif($add->type_id == 2)
+                                                <img draggable="false" src="images/btc-logo.svg">
+                                            @endif
+
                                             </div>
                                             <div class="payment-area">
-                                                <span class="payment-type">Ethereum</span>
-                                                <span class="payment-add text-truncate">0xa6fe83Dcf28Cc982818656ba680e03416824D5E4</span>
+                                                <span class="payment-type">
+                                                
+                                                @if ($add->type_id == 1)
+                                                  Ethereum
+                                                @elseif($add->type_id == 2) 
+                                                  Bitcoin
+                                                @endif  
+                                                
+                                                </span>
+                                                <span class="payment-add text-truncate">{{$add->address}}</span>
                                             </div>
                                             <!-- <div class="payment-area">
                                                 <img src="images/qr.png">
@@ -288,36 +255,16 @@
                                                 <img src="images/dots.svg">
                                             </a>
                                         </div>
-                                        <div class="payment-option d-flex align-items-center justify-content-between position-relative col-md" data-target=".btc-modal" data-toggle="modal">
-                                            <div class="circle-bg position-relative d-flex justify-content-center align-items-center">
-                                                <img draggable="false" src="images/btc-logo.svg">
-                                            </div>
-                                            <div class="payment-area">
-                                                <span class="payment-type">Bitcoin</span>
-                                                <span class="payment-add text-truncate">133CbWM4DeowjuNfxGf8ad5CjNZp6CUAWw</span>
-                                            </div>
-                                            <!-- <div class="payment-area">
-                                                <img src="images/qr.png">
-                                            </div> -->
-                                            <a class="more" href="">
-                                                <img src="images/dots.svg">
-                                            </a>
-                                        </div>
-                                        <div class="payment-option d-flex align-items-center justify-content-between position-relative col-md" data-target=".dash-modal" data-toggle="modal">
-                                            <div class="circle-bg position-relative justify-content-center align-items-center d-flex">
-                                                <img draggable="false" src="images/dash-logo.svg">
-                                            </div>
-                                            <div class="payment-area">
-                                                <span class="payment-type">Dash</span>
-                                                <span class="payment-add text-truncate">XfHwwoYoVZXHhgYSAkufLuA2AUrj9MvsEB</span>
-                                            </div>
-                                            <!-- <div class="payment-area">
-                                                <img src="images/qr.png">
-                                            </div> -->
-                                            <a class="more" href="">
-                                                <img src="images/dots.svg">
-                                            </a>
-                                        </div>
+                                    @endforeach
+
+
+                                      
+
+
+
+                                     
+
+
                                     </div>
                                 </div>
                             </div>
@@ -329,12 +276,14 @@
                                         Referrals
 </div>
                                     <div class="ref-row text-center">
-                                        <button disabled style="opacity: .65;">Whitelist for SafeName (Beta)
+                                        <a  href="/whitelist">
+                                        <button style="opacity: .65;">Whitelist for SafeName (Beta)
                                             <br>
                                             <div class="small">
                                                 Available Now
 </div>
-                                        </button>
+</button>
+</a>
                                     </div>
                                     <div class="text-center">
                                         <span class="ref-foot">Get me a page just like this one!</span>
@@ -388,5 +337,7 @@ PID0Mdyzp8um6elht6jExRH1lv1K978OLgOrtJ5iYpiyve1DKgyoWz48CorJh6Q=
                 <!-- /#page-content-wrapper -->
             </div>
         </div>
+        <input id="cp" type="text" />
+
         <!-- /#wrapper -->
 @endsection

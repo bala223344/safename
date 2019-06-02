@@ -22,14 +22,13 @@
 	</script>
   
         <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
-
         <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
 
 
 
 
-  <body class="">
+  <body onload="document.body.style.opacity='1'">
 
 
 <div  id="app">
@@ -46,6 +45,7 @@
 
 
   </div>
+  </div>
 
 
 
@@ -53,8 +53,7 @@
      
     <!-- <script src="https://code.jquery.com/jquery.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
-
-
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
 
 
     

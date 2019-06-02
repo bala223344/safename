@@ -32,7 +32,21 @@ const app = new Vue({
 });
 
 
-$("#menu-toggle").click(function(e) {
+$("#menu-toggle").click(function (e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
-  });
+});
+
+
+
+
+$(function () {
+
+    var cliboard = new ClipboardJS('.copy-to-clipboard');
+cliboard.on('success', function (e) {
+    //showTooltip(e.trigger, 'Copied!');
+    e.clearSelection();
+});
+
+
+})

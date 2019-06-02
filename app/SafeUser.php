@@ -14,11 +14,15 @@ class SafeUser extends Model
 
     public $timestamps = false;
 
-    public function addresses() {
-        return $this->hasMany('App\Address');
+
+
+    public static function fetchByAlias($alias) {
+        $a = DB::select('SELECT * FROM sws_user   
+        INNER JOIN sws_address on sws_address.cms_login_name = sws_user.cms_login_name 
+        WHERE public_profile_safename = ?;', [$alias]);
+
+        return $a ;
     }
-
-
 
 
 }
