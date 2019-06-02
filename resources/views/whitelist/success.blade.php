@@ -32,44 +32,15 @@
                 <div class="container-fluid mb-5">
                     <div class="title-area d-flex justify-content-between align-items-end">
                         <div class="title-text">
-                            Please provide your details
+                           Thank you! We will get back to you soon.
+
 </div>
                        
                     </div>
 
                     <div>
                  
-                        <div class="row" id="pay_section">
-                            <div class="col-md-12">
-                                <div class="po-card payments-contain mb-4">
-     
-                             
-                                    <div class="row mx-1">
-
-
-                                    <form id="form-whitelist">
-
-  <div class="form-group">
-    <label for="inputAddress">Your Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="0xdabb1e456cb0c490a34f65eff43ed0c449f039a6">
-  </div>
-  <div class="form-group ">
-    <label for="inputAddress2">Preferred safename</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Rockx45">
-  </div>
-
-  
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-
-                                     
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+               
                    
                     </div>
 

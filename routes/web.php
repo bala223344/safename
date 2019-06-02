@@ -18,7 +18,13 @@ Route::get('/', function () use ($router) {
 
 
 Route::get('whitelist', [
-    'uses' => 'UserController@whitelist'
+    'uses' => 'WhitelistController@index'
+]);
+Route::get('success', [
+    'uses' => 'WhitelistController@success'
+]);
+Route::post('whitelist', [
+    'uses' => 'WhitelistController@create'
 ]);
 Route::get('api/sn/fetchscam', [
     'uses' => 'SafeNameController@fetchAndInsertScam'

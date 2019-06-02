@@ -321,18 +321,14 @@
                         </div>
                     </div>
 
+                    @if ($user->keybase_string)
                     <div class="row">
                         <div class="col-12">
-                            <pre class="code code-highlighted"><span class="hljs-comment d-block">-----BEGIN PGP SIGNATURE-----</span><span class="keybase-them built-in">Version: Keybase OpenPGP v2.1.0 <br>Comment: https://keybase.io/crypto</span><br>
-wsBcBAABCgAGBQJc7ma7AAoJEIrJD367b+T6mjMH/25VTHZii7qwO+xI78/nlnEA
-TroMAdcj8mxkA7HDQXyMjMZRM8Pv8q5o3/CYEdVr4Al0Fmz4+Tsh+l7OQGvXqW/I
-81Qb/0sGYFQ/8f14wG9HfH60SzvkZJs+90rXTzRyfolcQiaFm6V4sxI+dTdKje4f
-WJVDozq0OQmzxel+1VmJqvXE1UlcNjXU3NS+CXlkuhag4cz1HC7fhfJmSpIk9Hal
-3H3XdIDl4yKqbGUKGnoIvYwwpnCI9XIM9222dY326V/x3hSbv+VqN+xneE5zBWiQ
-PID0Mdyzp8um6elht6jExRH1lv1K978OLgOrtJ5iYpiyve1DKgyoWz48CorJh6Q=
-=19OH<span class="hljs-comment d-block">-----END PGP SIGNATURE-----</span></pre>
+                            <pre class="code code-highlighted"><span class="hljs-comment d-block">-----BEGIN PGP SIGNATURE-----</span><span class="keybase-them built-in">{{$user->keybase_string}}
+                                <span class="hljs-comment d-block">-----END PGP SIGNATURE-----</span></pre>
                         </div>
                     </div>
+                    @endif
                 </div>
                 <!-- /#page-content-wrapper -->
             </div>
