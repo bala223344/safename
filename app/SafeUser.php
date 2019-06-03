@@ -11,7 +11,7 @@ class SafeUser extends Model
 
     protected $table = 'sws_user';
     protected $primaryKey = 'cms_login_name'; 
-
+    public $incrementing = false;
     public $timestamps = false;
 
 
