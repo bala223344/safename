@@ -40,4 +40,4 @@ Route::get('api/alias/{alias}', [
 
 Route::get('{slug}', [
     'uses' => 'UserController@getProfileByAlias'
-])->where('slug', '([A-Za-z0-9\-\/]+)');
+])->where('slug', '([A-Za-z0-9\-\/_]+)');

@@ -17,10 +17,10 @@ class UserController extends Controller
  
     public function getProfileByAlias($alias) {
      ///   $user = SafeUser::fetchByAlias($alias);
-        $user = SafeUser::where('cms_login_name', $alias)->first();
+        $user = SafeUser::where('public_profile_safename', $alias)->first();
 
         if($user) {
-            $address = Address::where('cms_login_name', $alias)->get();
+            $address = Address::where('address_safename', $alias)->get();
             $balances = array();
             foreach ($address as $key => $val) {
                 

@@ -36,7 +36,18 @@
 </div>
                        
                     </div>
+                    <div class="title-area d-flex justify-content-between align-items-end">
+                        <div class="">
+                        This is a whitelist signup for SafeName.io crypto address identity.  <br />
+Please provide either your email or full discord tag (i.e. Bob#2356)<br />
+We will reach out to you once your account is ready to be setup (usually within 24-48h)<br />
+(Your contact information will not be stored on our system after account creation.)<br />
+</div>
+                       
+                    </div>
 
+
+      
                     <div>
                  
                         <div class="row" id="pay_section">
