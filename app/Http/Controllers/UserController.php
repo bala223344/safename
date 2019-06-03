@@ -20,7 +20,7 @@ class UserController extends Controller
         $user = SafeUser::where('public_profile_safename', $alias)->first();
 
         if($user) {
-            $address = Address::where('address_safename', $alias)->get();
+            $address = Address::where('cms_login_name', $user->cms_login_name)->get();
             $balances = array();
             foreach ($address as $key => $val) {
                 
