@@ -1,4 +1,4 @@
-@extends('layouts.app-profile')
+@extends('layouts.app-profile', ['title' => $user->public_profile_safename])
 @section('content')
 @foreach ($address as $add)
 <div aria-hidden="true" class="modal fade {{ $add->type_id == 1 ? 'eth-modal' : 'btc-modal' }}" role="dialog" tabindex="-1">
@@ -25,7 +25,7 @@
                         </span>
 
 
-                        <a class="payment-add-m"  alt="Copy to clipboard">{{$add->address}} <span class="copy-to-clipboard" data-clipboard-text="{{$add->address}}" ><img width="13" height="18" src="images/copy.svg"> </span> 
+                        <a class="payment-add-m" data-clipboard-text="{{$add->address}}" alt="Copy to clipboard">{{$add->address}} <span class="copy-to-clipboard" ><img width="13" height="18" src="images/copy.svg"> </span>
 </a>
                         <a class="report-text" href="https://discord.gg/m38mfRB" target="_blank">Report This Address</a>
                     </div>
@@ -76,8 +76,10 @@
                                 @endif   
 
                         </div>
-                        <div class="text-right pr-0 col">
-                            <img height="auto" src="images/eth-address.png" width="150px" class="img-fluid">
+                        <div class="text-right pr-0 col qr-code">
+
+                            {!! QrCode::size(150)->generate($explorers[$add->address]); !!}
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -333,7 +335,6 @@
                 <!-- /#page-content-wrapper -->
             </div>
         </div>
-        <input id="cp" type="text" />
 
         <!-- /#wrapper -->
 @endsection

@@ -38,6 +38,9 @@ Route::get('api/alias/{alias}', [
 ]);
 
 
+  //should be placed at last
 Route::get('{slug}', [
     'uses' => 'UserController@getProfileByAlias'
 ])->where('slug', '([A-Za-z0-9\-\/_]+)');
+
+

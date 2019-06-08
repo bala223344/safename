@@ -5,7 +5,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-        <title>SafeName | Secure Anonymous Identity</title>
+        <title> {{@($title)?$title. " | ":""}}SafeName | Secure Anonymous Identity</title>
         <meta content="" name="description">
         <!-- favicon files -->
         <link href="images/favicon_package/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
@@ -53,10 +53,6 @@
      
     <!-- <script src="https://code.jquery.com/jquery.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-
-
-    
 
     <script src="{{ asset('js/app.js') }}" ></script>
   

@@ -29,6 +29,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    mounted: function () {}
 });
 
 
@@ -42,11 +43,39 @@ $("#menu-toggle").click(function (e) {
 
 $(function () {
 
-    var cliboard = new ClipboardJS('.copy-to-clipboard');
-cliboard.on('success', function (e) {
-    //showTooltip(e.trigger, 'Copied!');
-    e.clearSelection();
-});
+    var copyToClipboard = function(textToCopy){
+        $("body")
+            .append($('<input type="text" name="fname" class="textToCopyInput"/>' )
+            .val(textToCopy))
+            .find(".textToCopyInput")
+            .select();
+          try {
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            alert('Text copied to clipboard!');
+          } catch (err) {
+              window.prompt("To copy the text to clipboard: Ctrl+C, Enter", textToCopy);
+          }
+         $(".textToCopyInput").remove();
+    }
+
+
+    $('input:text').mouseup(function(e) { return false; }); 
+
+    $(".payment-add-m").click(function () {
+        var txt = $(this).data('clipboard-text')
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val(txt).focus().select();
+        document.execCommand("copy");
+        $temp.remove();
+        $copied = $("<span class='copied-msg'>")
+        $copied.html("Copied..")
+        $copied.css({top: $(this).offset().top + 30, left: $(this).offset().left + 350, position:'absolute'})
+        $("body").append($copied)
+        setTimeout(function(){ $('.copied-msg').remove(); }, 1000);
+    })
+
 
 
 })

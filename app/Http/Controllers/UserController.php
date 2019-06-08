@@ -23,24 +23,27 @@ class UserController extends Controller
             
             $address = Address::where('cms_login_name', $user->cms_login_name)->get();
             $balances = array();
+            $explorers = array();
             foreach ($address as $key => $val) {
-                
                
                 if($val->type_id == 2) {//btc 
                     $balance =  json_decode(file_get_contents(
                         "https://api.blockcypher.com/v1/btc/main/addrs/{$val->address}/balance"), true);
-                        $balances[$val->address] = ($balance['balance'] / (10**8));
+                    $balances[$val->address] = ($balance['balance'] / (10**8));
+                    $explorers[$val->address] = "https://live.blockcypher.com/btc/address/{$val->address}";
+
                 }elseif($val->type_id == 1) { //eth...
                     $balance =  json_decode(file_get_contents(
                         "https://api.blockcypher.com/v1/eth/main/addrs/{$val->address}/balance"), true);
-                        $balances[$val->address] = ($balance['balance'] / (10**18));
-                        
+                    $balances[$val->address] = ($balance['balance'] / (10**18));
+                    $explorers[$val->address] = "https://etherscan.io/address/{$val->address}";
 
                 }
                
             }
+
             
-            return view('profile.details')->with('user', $user)->with('address', $address)->with('balances', $balances);
+            return view('profile.details')->with('user', $user)->with('address', $address)->with('balances', $balances)->with('explorers', $explorers);
         }else {
             return view('profile.notfound')->with('alias', $alias);
         }
