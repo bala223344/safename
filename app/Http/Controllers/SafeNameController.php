@@ -55,7 +55,7 @@ class SafeNameController extends Controller
 
        $a = DB::select('SELECT * FROM sws_user   
                            INNER JOIN sws_address on sws_address.cms_login_name = sws_user.cms_login_name 
-                           WHERE public_profile_safename = ?;', [$alias]);
+                           WHERE public_profile_safename = ? ORDER BY type_id ASC limit 1 ;', [$alias]);
 
         //   return response()->json([
         //     'name' => 'Abigail',

@@ -16,7 +16,6 @@ class UserController extends Controller
 
  
     public function getProfileByAlias($alias) {
-     ///   $user = SafeUser::fetchByAlias($alias);
         $user = SafeUser::where('public_profile_safename', $alias)->first();
 
         if($user) {
