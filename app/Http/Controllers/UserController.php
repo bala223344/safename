@@ -35,7 +35,7 @@ class UserController extends Controller
                     $balance =  json_decode(file_get_contents(
                         "https://api.blockcypher.com/v1/eth/main/addrs/{$val->address}/balance"), true);
                     $balances[$val->address] = ($balance['balance'] / (10**18));
-                    $explorers[$val->address] = "https://etherscan.io/address/{$val->address}";
+                    $explorers[$val->address] = "ethereum: {$val->address}";
 
                 }
                
