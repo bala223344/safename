@@ -77,8 +77,9 @@
 
                         </div>
                         <div class="text-right pr-0 col qr-code">
+                        <img src="data:image/png;base64, {!! base64_encode(QrCode::format('png')->size(150)->generate($explorers[$add->address])) !!} ">
 
-                            {!! QrCode::size(150)->generate($explorers[$add->address]); !!}
+
                             </a>
                         </div>
                     </div>

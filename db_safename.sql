@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jun 02, 2019 at 04:24 PM
--- Server version: 5.7.23-log
--- PHP Version: 7.2.10
+-- Generation Time: Jun 10, 2019 at 06:32 AM
+-- Server version: 5.7.25-log
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -79,7 +79,8 @@ CREATE TABLE `sws_user` (
   `public_profile_enabled` varchar(3) DEFAULT NULL,
   `login_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `profile_description` text,
-  `avatar` varchar(100) DEFAULT NULL
+  `avatar` varchar(100) DEFAULT NULL,
+  `keybase_string` text
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -134,19 +135,25 @@ ALTER TABLE `sws_whitelist`
 -- AUTO_INCREMENT for table `sws_address`
 --
 ALTER TABLE `sws_address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sws_coin_type`
 --
 ALTER TABLE `sws_coin_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sws_user`
 --
 ALTER TABLE `sws_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sws_whitelist`
+--
+ALTER TABLE `sws_whitelist`
+  MODIFY `whitelist_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
