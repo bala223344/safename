@@ -33,9 +33,8 @@ class UserController extends Controller
 
                 }elseif($val->type_id == 1) { //eth...
                     $balance =  json_decode(file_get_contents(
-                        "https://api.blockcypher.com/v1/eth/main/addrs/{$val->address}/balance"), true);
-                    $balances[$val->address] = ($balance['balance'] / (10**18));
-               //     echo "ethereum: {$val->address}"; exit;
+                        "https://api.etherscan.io/api?module=account&action=balance&address={$val->address}&tag=latest&apikey=I8IRYRHYI6DE71J3K9MSX3ANH7RQSCMC6F"), true);
+                    $balances[$val->address] = ($balance['result'] / (10**18));
                     $explorers[$val->address] = "ethereum: {$val->address}";
 
                 }

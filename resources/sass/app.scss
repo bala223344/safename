@@ -579,7 +579,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100px;
     height: 57px;
     font-family: Rubik;
-    font-size: 48px;
+    font-size: 43px;
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
@@ -589,13 +589,24 @@ input[type=number]::-webkit-outer-spin-button {
     color: #2e384d;
     position: absolute;
     left: 50%;
-    top: 45px;
+    top: 93px;
     width: 100px;
     margin-left: -50px;
 
     /* Half the width */
 }
 
+#lbl-score {
+    position: absolute;
+    left: 27%;
+    top: 143px;
+    text-align: center;
+    width: 95px;
+    color: #8798ad;
+    font-family: Rubik;
+    font-size: 13px;
+    line-height: 1.2;
+}
 .username {
     margin: 8px auto 0 auto;
     height: 32px;
@@ -1101,3 +1112,13 @@ pre {
     color: #fff;
     border-radius: 2px;
 }
+
+#chart-canvas{
+    canvas {
+        width:200px !important;
+    height:200px !important;
+     
+    }
+    
+  
+  }

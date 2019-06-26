@@ -1,7 +1,7 @@
 @extends('layouts.app-profile', ['title' => $user->public_profile_safename])
 @section('content')
 @foreach ($address as $add)
-<div aria-hidden="true" class="modal fade {{ $add->type_id == 1 ? 'eth-modal' : 'btc-modal' }}" role="dialog" tabindex="-1">
+<div aria-hidden="true" id="modal-{{$add->address}}" class="modal fade" role="dialog" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="d-flex p-4">
@@ -172,10 +172,12 @@
                             <div class="mb-4 col-lg-8 col-md-12">
                                 <div class="card card-body-score">
                                     <div class="top align-items-center d-inline-flex justify-content-around">
-                                        <div>
+                                        <div id="chart-canvas">
                                             <div class="position-relative selectDisable mx-5">
-                                                <span id="score">99</span>
-                                                <img draggable="false" src="images/chart/99.svg">
+                                                <span id="score">{{$user->profile_risk_score}}</span>
+                                                <span id="lbl-score">CREDIT RISK SCORE</span>
+
+                                                <score-component :score="{{$user->profile_risk_score}}"></score-component>
                                             </div>
                                         </div>
                                         <div class="desc-contain">
@@ -229,7 +231,7 @@
 
 
                                     @foreach ($address as $add)
-                                    <div class="payment-option align-items-center justify-content-between position-relative d-flex col-md" data-target="{{ $add->type_id == 1 ? '.eth-modal' : '.btc-modal' }}" data-toggle="modal">
+                                    <div class="payment-option align-items-center justify-content-between position-relative d-flex col-md" data-target="#modal-{{$add->address}}" data-toggle="modal">
                                             <div class="circle-bg position-relative d-flex justify-content-center align-items-center">
 
                                             @if ($add->type_id == 1)
@@ -336,6 +338,8 @@
                 <!-- /#page-content-wrapper -->
             </div>
         </div>
+
+        
 
         <!-- /#wrapper -->
 @endsection
