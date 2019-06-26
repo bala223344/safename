@@ -1827,7 +1827,7 @@ __webpack_require__.r(__webpack_exports__);
         },
         rotation: 1 * Math.PI,
         circumference: 1 * Math.PI,
-        cutoutPercentage: 70
+        cutoutPercentage: 80
       }
     };
   },

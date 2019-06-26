@@ -35,7 +35,7 @@ export default {
          
             rotation: 1 * Math.PI,
           circumference: 1 * Math.PI,
-          cutoutPercentage:70
+          cutoutPercentage:80
         }
   }),
 
